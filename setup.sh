@@ -15,5 +15,10 @@ linkerd check
 # with ingress-nginx-controller's type changed from NodePort to LoadBalancer.
 kubectl apply -f manifests/ingress-nginx_deploy.yaml
 
+# Wait for ingress-nginx is up before continuing
+kubectl rollout status deployment/ingress-nginx-controller -n ingress-nginx
+# Seems to need a little extra wait time
+sleep 5
+
 # Install the ingress for the linkerd dashbaord on the cluster
 kubectl apply -f manifests/linkerd_dashboard_ingress.yaml
