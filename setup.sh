@@ -7,7 +7,7 @@ kubectl create secret generic -n metallb-system memberlist --from-literal=secret
 kubectl apply -f manifests/metallb_configmap.yaml
 
 # Install linkerd on the cluster
-linkerd install | kubectl apply -f -
+linkerd install --config manifests/config.yaml | kubectl apply -f -
 linkerd check
 
 # Install ingress-nginx on the cluster

@@ -1,2 +1,2 @@
 metallb_configmap.yaml
-deploy.yaml
+linkerd_config.yaml
