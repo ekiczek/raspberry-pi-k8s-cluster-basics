@@ -293,6 +293,10 @@ spec:
       port: 443
       protocol: TCP
       targetPort: https
+    - name: prometheus
+      port: 9090
+      protocol: TCP
+      targetPort: http
   selector:
     app.kubernetes.io/name: ingress-nginx
     app.kubernetes.io/instance: ingress-nginx
