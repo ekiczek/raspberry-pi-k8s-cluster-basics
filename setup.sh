@@ -7,7 +7,7 @@ kubectl create secret generic -n metallb-system memberlist --from-literal=secret
 kubectl apply -f manifests/metallb_configmap.yaml
 
 # Install linkerd on the cluster
-linkerd install --config manifests/config.yaml | kubectl apply -f -
+linkerd install --config manifests/linkerd_config.yaml | kubectl apply -f -
 linkerd check
 
 # Install ingress-nginx on the cluster
@@ -22,3 +22,6 @@ sleep 5
 
 # Install the ingress for the linkerd dashbaord on the cluster
 kubectl apply -f manifests/linkerd_dashboard_ingress.yaml
+
+# Install the ingress for Prometheus on the cluster
+kubectl apply -f manifests/linkerd_prometheus_ingress.yaml

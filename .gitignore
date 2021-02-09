@@ -1,2 +1,3 @@
 metallb_configmap.yaml
 linkerd_config.yaml
+linkerd_prometheus_ingress.yaml
