@@ -1,10 +1,19 @@
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  labels:
+    kubernetes.io/metadata.name: kube-verify
+  name: kube-verify
+spec:
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  labels:
-    app: kube-verify
   name: kube-verify
   namespace: kube-verify
+  labels:
+    app: kube-verify
 spec:
   replicas: 3
   selector:
@@ -18,7 +27,23 @@ spec:
         app: kube-verify
     spec:
       containers:
-      - image: quay.io/clcollins/kube-verify:01
-        name: nginx
+      - name: nginx
+        image: quay.io/clcollins/kube-verify:01
         ports:
         - containerPort: 8080
+      tolerations:
+      - effect: NoSchedule
+        operator: Exists
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: kube-verify
+  namespace: kube-verify
+spec:
+  selector:
+    app: kube-verify
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8080
