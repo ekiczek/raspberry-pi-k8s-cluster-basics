@@ -1,8 +1,0 @@
-spec:
-  template:
-    metadata:
-      annotations:
-        linkerd.io/inject: enabled
-        config.linkerd.io/trace-collector: linkerd-collector.linkerd:55678
-        config.alpha.linkerd.io/trace-collector-service-account: linkerd-collector
-

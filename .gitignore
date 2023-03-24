@@ -1,3 +1,3 @@
-metallb_configmap.yaml
-linkerd_config.yaml
+metallb_resources.yaml
+linkerd_dashboard_ingress.yaml
 linkerd_prometheus_ingress.yaml

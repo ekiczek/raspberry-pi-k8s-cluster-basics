@@ -1,8 +1,0 @@
-tracing:
-  enabled: true
-  collector:
-    # Use an arm64 architecture image
-    image: <YOUR_REPO>/linkerd-collector
-  jaeger:
-    # Use an arm64 architecture image
-    image: querycapjaegertracing/all-in-one
